@@ -1,11 +1,14 @@
 var app = new Vue({
   el: '#app',
   data: {
-    product: 'Socks',
-    inventory: 9,
-    description: 'Beautiful and soft.',
-    image: './img/socks.jpeg',
-    moreProductsLink: 'https://www.ecosia.org/',
-    MoreProductsText: 'Search for more products...'
+    tasks: [],
+    newTask: ''
+  },
+  methods: {
+    addTask() {
+      this.tasks.push(this.newTask);
+      // Empty out the task so the input field gets cleared
+      this.newTask = '';
+    }
   }
 })

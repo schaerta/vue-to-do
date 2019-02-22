@@ -13,9 +13,9 @@
 		<button @click="addTask">Add task</button>
 
 		<div>
-			<ul>
-				<li v-if="task.show" v-for="task in tasks" v-text="task.description"></li>
-
+			<ul v-for="task in tasks" v-if="task.show">
+				<li v-text="task.description" :class="{ completed: task.completed }"></li>
+				<button v-show="!task.completed" @click="markCompleted(task)">Mark as completed</button>
 			</ul>
 		</div>
 

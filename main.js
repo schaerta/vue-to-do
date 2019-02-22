@@ -3,7 +3,10 @@ var app = new Vue({
     data: {
     tasks: [
         { description: "Brush teeth", completed: false, show: true },
-        { description: "Go to dentist", completed: true, show: true }
+        { description: "Go to dentist", completed: true, show: true },
+        { description: "Go to sleep", completed: false, show: true },
+        { description: "Go to work", completed: false, show: true },
+        { description: "Be awesome", completed: false, show: true }
     ],
     newTask: '',
     showCompleted: true,
@@ -13,10 +16,13 @@ var app = new Vue({
   methods: {
       addTask() {
           this.tasks.push(
-              { description: this.newTask, completed: false }
+              { description: this.newTask, completed: false, show: true }
           );
           // Empty out the task so the input field gets cleared
           this.newTask = '';
+      },
+      markCompleted(task) {
+          return task.completed = true;
       },
       filterOpen() {
           for (let i=0; i < this.tasks.length; i++){

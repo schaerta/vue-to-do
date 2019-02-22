@@ -14,9 +14,14 @@
 
 		<div>
 			<ul>
-				<li v-for="task in tasks">{{ task }}</li>
+				<li v-if="task.show" v-for="task in tasks" v-text="task.description"></li>
+
 			</ul>
 		</div>
+
+		<button @click="filterOpen">Only show open Tasks</button>
+		<button @click="filterCompleted">Only show completed Tasks</button>
+		<button @click="showAllTasks">Show All Tasks</button>
 
 	</div>
 
